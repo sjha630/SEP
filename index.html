@@ -78,6 +78,8 @@
 
 <header>
     <h1>Saraswati Education Point</h1>
+    <p><strong>Address:</strong> G.F. H.No. 171 Tyagi Mohalla, Chhatarpur, New Delhi-110074</p>
+</section>
     <p>ज्ञान ही सफलता की कुंजी है</p>
 </header>
 
@@ -116,12 +118,47 @@
 <section id="contact" class="contact">
     <h2>Contact Us</h2>
     <p><strong>Phone:</strong> 9654471148</p>
-    <p><strong>Address:</strong> Your Coaching Address Here</p>
+
+<section id="form" class="form-section">
+    <h2 style="text-align:center;">Enrollment Form</h2>
+
+    <form onsubmit="sendToWhatsApp(); return false;">
+        <input type="text" id="name" placeholder="Name" required>
+        <input type="text" id="class" placeholder="Class" required>
+        <input type="text" id="school" placeholder="School" required>
+        <input type="tel" id="contact" placeholder="Contact No." required>
+        <textarea id="address" placeholder="Address" required></textarea>
+
+        <button type="submit">Send via WhatsApp</button>
+    </form>
 </section>
 
 <footer>
-    <p>© 2026 Saraswati Education Point | All Rights Reserved</p>
+    <p>© 2026 Saraswati Education Point</p>
 </footer>
+
+<script>
+function sendToWhatsApp() {
+    var name = document.getElementById("name").value;
+    var studentClass = document.getElementById("class").value;
+    var school = document.getElementById("school").value;
+    var contact = document.getElementById("contact").value;
+    var address = document.getElementById("address").value;
+
+    var message = `New Enrollment Request:%0A
+Name: ${name}%0A
+Class: ${studentClass}%0A
+School: ${school}%0A
+Contact: ${contact}%0A
+Address: ${address}`;
+
+    var phoneNumber = "919654471148"; // your WhatsApp number (91 = India)
+
+    var url = "https://wa.me/" + phoneNumber + "?text=" + message;
+
+    window.open(url, "_blank");
+}
+</script>
 
 </body>
 </html>
